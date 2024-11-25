@@ -3,6 +3,19 @@ background: rgb(159,3,255);
 background: linear-gradient(90deg, rgba(159,3,255,1) 0%, rgba(22,154,233,1) 63%, rgba(0,237,255,1) 100%);
 }
 
+.luckiest-guy-regular {
+    font-family: "Luckiest Guy", serif;
+    font-weight: 400;
+    font-style: normal;
+  }
+  
+  
+  .navbar{
+    font-family: Arial, Helvetica, sans-serif;
+  font-weight: 50;
+  font-style: normal;
+  }  
+
 .navbar-brand img {
     width: 150px;
     /* Tamaño ajustable del logo */
@@ -19,18 +32,12 @@ background: linear-gradient(90deg, rgba(159,3,255,1) 0%, rgba(22,154,233,1) 63%,
     /* Azul brillante en hover */
 }
 
-.btn-custom {
-    background-color: rgb(0, 0, 0);
-    /* Azul estilo Fortnite */
-    color: #fff;
-    border: none;
+.nav-item{
+    padding-left: 20px;
+
 }
 
-.btn-custom:hover {
-    background-color: rgb(72, 72, 72);
-    color: #fff;
-    /* Azul más oscuro al pasar el mouse */
-}
 .logo{
     width: 1000px;
+    height: auto;   
 }
