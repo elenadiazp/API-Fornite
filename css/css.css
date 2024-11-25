@@ -1,0 +1,36 @@
+header{
+background: rgb(159,3,255);
+background: linear-gradient(90deg, rgba(159,3,255,1) 0%, rgba(22,154,233,1) 63%, rgba(0,237,255,1) 100%);
+}
+
+.navbar-brand img {
+    width: 150px;
+    /* Tamaño ajustable del logo */
+}
+
+.nav-link {
+    color: #fff !important;
+    /* Texto blanco */
+    font-weight: 600;
+}
+
+.nav-link:hover {
+    color: rgb(0, 0, 0) !important;
+    /* Azul brillante en hover */
+}
+
+.btn-custom {
+    background-color: rgb(0, 0, 0);
+    /* Azul estilo Fortnite */
+    color: #fff;
+    border: none;
+}
+
+.btn-custom:hover {
+    background-color: rgb(72, 72, 72);
+    color: #fff;
+    /* Azul más oscuro al pasar el mouse */
+}
+.logo{
+    width: 1000px;
+}
