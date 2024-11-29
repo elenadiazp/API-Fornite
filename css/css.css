@@ -41,3 +41,30 @@ background: linear-gradient(90deg, rgba(159,3,255,1) 0%, rgba(22,154,233,1) 63%,
     width: 1000px;
     height: auto;   
 }
+.home {
+    min-height: 600px; /* Ajusta este valor según tus necesidades */
+    background: url('../img/fortnite-background.jpg') no-repeat center center;
+    background-size: cover;
+    color: #000000;
+    padding: 50px 0;
+    text-align: center;
+}
+
+.home h1 {
+    font-size: 3rem;
+    margin-bottom: 20px;
+}
+
+.home p {
+    font-size: 1.25rem;
+    margin-bottom: 20px;
+}
+
+.home .btn {
+    font-size: 1.25rem;
+    padding: 10px 20px;
+}
+
+.img-fluid {
+    max-width: 100%; /* Ajustar este valor para aumentar el tamaño */
+}
