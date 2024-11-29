@@ -1,0 +1,30 @@
+.card {
+    position: relative;
+    overflow: hidden; /* Para evitar que el contenido se desborde */
+}
+
+/* Estilo para la imagen */
+.card-img-top {
+    width: 100%;
+    height: auto;
+}
+
+/* Estilo para el cuerpo de la tarjeta, para posicionarlo encima de la imagen */
+.card-body {
+    position: absolute; /* Posicionarlo encima */
+    bottom: 0; /* Colocarlo en la parte inferior */
+    left: 0;
+    right: 0;
+    background: rgba(0, 0, 0, 0.6); /* Fondo semitransparente para destacar el texto */
+    color: white; /* Texto blanco para contraste */
+    padding: 1rem; /* Espaciado interno */
+    transition: transform 0.3s ease, opacity 0.3s ease; /* Transición para efectos */
+    transform: translateY(100%); /* Inicialmente fuera de la vista */
+    opacity: 0; /* Invisible por defecto */
+}
+
+/* Mostrar el cuerpo de la tarjeta al pasar el mouse sobre la tarjeta */
+.card:hover .card-body {
+    transform: translateY(0); /* Mostrar el cuerpo en su lugar */
+    opacity: 1; /* Hacerlo visible */
+}
