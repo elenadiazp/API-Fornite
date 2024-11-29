@@ -34,7 +34,7 @@ function procesarJSON(jsondata) {
 
        
         const cardTitle = document.createElement("h2");
-        cardTitle.classList.add('card-title');
+        cardTitle.classList.add('card-title','luckiest-guy-regular');
         cardTitle.textContent = objeto.title;
 
         const cardText = document.createElement("p");
@@ -62,7 +62,7 @@ function procesarJSON2(jsondata) {
    objetos.forEach(objeto => {
 
         const cardCol = document.createElement("div");
-        cardCol.classList.add('col-6', 'mb-4');
+        cardCol.classList.add('col-lg-6','col-12', 'mb-4');
 
         const card = document.createElement("div");
         card.classList.add('card','h-100');
@@ -70,13 +70,13 @@ function procesarJSON2(jsondata) {
         const img = document.createElement('img');
         img.src = objeto.image;
         img.alt = objeto.title;
-        img.classList.add('card-img-top', 'img-fluid','imagen');
+        img.classList.add('card-img-top', 'img-fluid');
 
         const cardBody = document.createElement("div");
         cardBody.classList.add('card-body', 'border-0', 'shadow');
         
-        const cardTitle = document.createElement("h2");
-        cardTitle.classList.add('card-title');
+        const cardTitle = document.createElement("h2",);
+        cardTitle.classList.add('card-title','luckiest-guy-regular');
         cardTitle.textContent = objeto.title;
 
         const cardText = document.createElement("p");

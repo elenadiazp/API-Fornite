@@ -1,30 +1,44 @@
 .card {
     position: relative;
-    overflow: hidden; /* Para evitar que el contenido se desborde */
+    overflow: hidden; /* Evitar que la imagen se desborde fuera de la tarjeta */
+    border: none;
 }
 
-/* Estilo para la imagen */
+/* Estilo para la imagen con el zoom */
 .card-img-top {
     width: 100%;
     height: auto;
+    transition: transform 0.3s ease; /* Transición suave cuando se aplica el zoom */
 }
 
-/* Estilo para el cuerpo de la tarjeta, para posicionarlo encima de la imagen */
+/* Efecto de zoom cuando el ratón pasa sobre la imagen */
+.card:hover .card-img-top {
+    transform: scale(1.1); /* Amplía la imagen al 110% de su tamaño original */
+}
+
+/* Estilo para el cuerpo de la tarjeta (aún visible sobre la imagen) */
 .card-body {
-    position: absolute; /* Posicionarlo encima */
-    bottom: 0; /* Colocarlo en la parte inferior */
-    left: 0;
-    right: 0;
-    background: rgba(0, 0, 0, 0.6); /* Fondo semitransparente para destacar el texto */
-    color: white; /* Texto blanco para contraste */
-    padding: 1rem; /* Espaciado interno */
-    transition: transform 0.3s ease, opacity 0.3s ease; /* Transición para efectos */
-    transform: translateY(100%); /* Inicialmente fuera de la vista */
-    opacity: 0; /* Invisible por defecto */
+    position: relative; /* Asegura que el contenido de la tarjeta no se mueva */
+    /* Fondo semitransparente */
+    /* Texto blanco para contraste */
+    padding: 1rem;
+    z-index: 2; /* Asegura que el cuerpo se quede encima de la imagen */
 }
 
-/* Mostrar el cuerpo de la tarjeta al pasar el mouse sobre la tarjeta */
-.card:hover .card-body {
-    transform: translateY(0); /* Mostrar el cuerpo en su lugar */
-    opacity: 1; /* Hacerlo visible */
+/* Espaciado para el título y el texto */
+.card-body h2,
+.card-body p {
+    margin-top: 0.5rem;
+}
+
+.card-body h2 {
+    margin-bottom: 1rem;
+}
+
+/* Asegurarse de que el texto no se desborde */
+.card-body p {
+    overflow-wrap: break-word;
+}
+body{
+    background-color: aliceblue;
 }
