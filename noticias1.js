@@ -24,11 +24,11 @@ function procesarJSON(jsondata) {
         const card = document.createElement("div");
         card.classList.add('card','h-100');
         card.addEventListener('click', () => {
-            window.location.href = 'noticiaAmpliada.html';
+            window.location.href = 'noticiaAmpliada.html?title=' + objeto.title + '&body=' + objeto.body + '&image=' + objeto.image;
         });
 
         const img = document.createElement('img');
-        img.src = objeto.image;
+        img.src = objeto.image || 'img/_default.jpg';
         img.alt = objeto.title;
         img.classList.add('card-img-top', 'img-fluid');
 
@@ -69,9 +69,9 @@ function procesarJSON2(jsondata) {
 
         const card = document.createElement("div");
         card.classList.add('card','h-100');
-        card.addEventListener('click', () => {
+       /* card.addEventListener('click', () => {
             window.location.href = 'noticiaAmpliada.html';
-        });
+        });*/
 
         const img = document.createElement('img');
         img.src = objeto.image;
@@ -85,13 +85,13 @@ function procesarJSON2(jsondata) {
         cardTitle.classList.add('card-title','luckiest-guy-regular');
         cardTitle.textContent = objeto.title;
 
-        /*const cardText = document.createElement("p");
+        const cardText = document.createElement("p");
         cardText.classList.add('card-text');
-        cardText.textContent = objeto.body*/
+        cardText.textContent = objeto.body
        
        
         cardBody.appendChild(cardTitle);
-       /* cardBody.appendChild(cardText);*/
+        cardBody.appendChild(cardText);
        
         card.appendChild(img);
         card.appendChild(cardBody);
@@ -105,3 +105,22 @@ function procesarJSON2(jsondata) {
   
 }
 fetchNews();
+
+function mostrarNoticiaAmpliada() {
+    const urlParams = new URLSearchParams(window.location.search);
+    const title = urlParams.get('title');
+    const body = urlParams.get('body');
+    const image = urlParams.get('image');
+
+    if (title && body && image) {
+        document.querySelector('.card-title').textContent = title;
+        document.querySelector('.card-text').textContent = body;
+        document.querySelector('.card-img-top').src = image;
+        document.querySelector('.card-img-top').alt = title;
+    }
+}
+
+// Llamar a la función solo si estamos en noticiaAmpliada.html
+if (window.location.pathname.endsWith('noticiaAmpliada.html')) {
+    mostrarNoticiaAmpliada();
+}
