@@ -23,6 +23,9 @@ function procesarJSON(jsondata) {
 
         const card = document.createElement("div");
         card.classList.add('card','h-100');
+        card.addEventListener('click', () => {
+            window.location.href = 'noticiaAmpliada.html';
+        });
 
         const img = document.createElement('img');
         img.src = objeto.image;
@@ -37,13 +40,13 @@ function procesarJSON(jsondata) {
         cardTitle.classList.add('card-title','luckiest-guy-regular');
         cardTitle.textContent = objeto.title;
 
-        const cardText = document.createElement("p");
+/*        const cardText = document.createElement("p");
         cardText.classList.add('card-text');
-        cardText.textContent = objeto.body
+        cardText.textContent = objeto.body;*/
 
 
         cardBody.appendChild(cardTitle);
-        cardBody.appendChild(cardText);
+      /*  cardBody.appendChild(cardText);*/
         card.appendChild(img);
         card.appendChild(cardBody);
 
@@ -66,6 +69,9 @@ function procesarJSON2(jsondata) {
 
         const card = document.createElement("div");
         card.classList.add('card','h-100');
+        card.addEventListener('click', () => {
+            window.location.href = 'noticiaAmpliada.html';
+        });
 
         const img = document.createElement('img');
         img.src = objeto.image;
@@ -79,13 +85,13 @@ function procesarJSON2(jsondata) {
         cardTitle.classList.add('card-title','luckiest-guy-regular');
         cardTitle.textContent = objeto.title;
 
-        const cardText = document.createElement("p");
+        /*const cardText = document.createElement("p");
         cardText.classList.add('card-text');
-        cardText.textContent = objeto.body
+        cardText.textContent = objeto.body*/
        
        
         cardBody.appendChild(cardTitle);
-        cardBody.appendChild(cardText);
+       /* cardBody.appendChild(cardText);*/
        
         card.appendChild(img);
         card.appendChild(cardBody);
