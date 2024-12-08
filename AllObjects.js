@@ -106,25 +106,18 @@ function crearCardCosmetico(cosmetico) {
     cardText.classList.add('card-text');
     cardText.textContent = cosmetico.description;
 
-    const buyButton = document.createElement("button");
+    const buyButton = document.createElement("a");
     buyButton.classList.add('btn', 'btn-primary', 'me-2'); // Añadir margen a la derecha
     buyButton.style.backgroundColor = '#00aaff';
     buyButton.style.border = 'none';
-    buyButton.textContent = 'Comprar';
+    buyButton.textContent = 'Ver detalles';
+    buyButton.href = `objetoAmpliado.html?id=${cosmetico.id}`;
 
     const favoriteButton = document.createElement("button");
     favoriteButton.classList.add('btn', 'btn-danger', 'me-2'); // Añadir margen a la derecha
     favoriteButton.style.backgroundColor = '#ff0000';
     favoriteButton.style.border = 'none';
     favoriteButton.innerHTML = '<i class="fa fa-heart" aria-hidden="true"></i>';
-
-    // Añadir enlace para detalles
-    const detailsLink = document.createElement("a");
-    detailsLink.href = `objetoAmpliado.html?id=${cosmetico.id}`;
-    detailsLink.textContent = 'Ver detalles';
-    detailsLink.style.color = '#fff';   
-    detailsLink.style.backgroundColor = '#ff7800';
-    detailsLink.classList.add('btn', 'mt-2');
 
     const buttonContainer = document.createElement("div");
     buttonContainer.classList.add('d-flex', 'justify-content-center', 'align-items-center', 'mt-2');
@@ -134,7 +127,6 @@ function crearCardCosmetico(cosmetico) {
     cardBody.appendChild(cardTitle);
     cardBody.appendChild(cardText);
     cardBody.appendChild(buttonContainer);
-    cardBody.appendChild(detailsLink);
     card.appendChild(img);
     card.appendChild(cardBody);
     cardCol.appendChild(card);
