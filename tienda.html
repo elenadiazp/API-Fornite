@@ -62,20 +62,40 @@
 
             
         </header>
+        
         <main>
-
             <section class="container my-5">
-                <div class="row" id="container-cosmetics">
+                <h1 class="text-center mb-4">Filtrar Cosméticos</h1>
+            
+                <!-- Filtros -->
+                <div class="row mb-4">
+                    <div class="col-md-6 mb-3 mb-md-0">
+                        <select id="filterCategory" class="form-select">
+                            <option value="">Selecciona una raridad</option>
+                            <option value="rarity">Rareza</option>
+                            <option value="chapter">Capítulo</option>
+                            <option value="type">Tipo</option>
+                        </select>
+                    </div>
+                    <div class="col-md-6">
+                        <select id="filterValue" class="form-select">
+                            <option value="">Selecciona un tipo</option>
+                       
+                        </select>
+                    </div>
+                </div>
+            
+                <!-- Contenedor de cosméticos -->
+                <div class="row gy-4" id="container-cosmetics">
                     <!-- Las tarjetas se insertarán aquí -->
                 </div>
             </section>
-            
-            <div id="loading-indicator" style="text-align:center; margin: 20px;">
-                <p>Cargando más...</p>
-            </div>
-            </section>
-
+    
+          <div id="loading-indicator" style="text-align: center; margin: 20px">
+            <p>Cargando más...</p>
+          </div>
         </main>
+
         <footer class="bg-dark text-light py-4">
             <div class="container">
                 <div class="row text-center text-md-start">
