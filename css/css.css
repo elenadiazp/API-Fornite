@@ -68,3 +68,8 @@ background: linear-gradient(90deg, rgba(159,3,255,1) 0%, rgba(22,154,233,1) 63%,
 .img-fluid {
     max-width: 100%; /* Ajustar este valor para aumentar el tamaño */
 }
+
+a{
+    text-decoration: none;
+    color: white;
+}
