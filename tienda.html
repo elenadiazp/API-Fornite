@@ -21,6 +21,8 @@
             @import url('https://fonts.googleapis.com/css2?family=Coiny&family=Luckiest+Guy&display=swap');
             </style>
         <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
+
+        
     </head>
 
     <body>
@@ -63,23 +65,14 @@
         <main>
 
             <section class="container my-5">
-                
-                <div class="text-end"><button class="btn btn-danger mb-3" style="background-color: #ff0000; border: none;"><i class="fa fa-heart" aria-hidden="true"></i></button></div>
-                <div class="row g-4">
-                    <!-- Card 1 -->
-                    <div class="col-12 col-sm-6 col-md-4 col-lg-3">
-                        <div class="card text-center border-0 shadow" style="background-color: #1c1e21; color: #fff;">
-                            <img class="card-img-top p-3 rounded" src="img/skin1.jpg" alt="Skin 1">
-                            <div class="card-body">
-                                <h5 class="card-title luckiest-guy-regular">Skin Legendaria</h5>
-                                <p class="card-text">Equípate con esta épica skin para destacar en la batalla.</p>
-                                <button class="btn btn-primary" style="background-color: #00aaff; border: none;"> <a href="objetoAmpliado.html">Comprar</a> </button>
-                                <button class="btn btn-danger" style="background-color: #ff0000; border: none;"><i class="fa fa-heart" aria-hidden="true"></i></button>
-                            </div>
-                        </div>
-                    </div>
-                    
+                <div class="row" id="container-cosmetics">
+                    <!-- Las tarjetas se insertarán aquí -->
                 </div>
+            </section>
+            
+            <div id="loading-indicator" style="text-align:center; margin: 20px;">
+                <p>Cargando más...</p>
+            </div>
             </section>
 
         </main>
@@ -122,6 +115,7 @@
                 style="color: #ff0000" aria-hidden="true"></i></a>
         </footer>
         
+        <script type="module" src="AllObjects.js"></script>
         
         <!-- Bootstrap JavaScript Libraries -->
         <script
@@ -135,5 +129,6 @@
             integrity="sha384-BBtl+eGJRgqQAUMxJ7pMwbEyER4l1g+O15P+16Ep7Q9Q+zqX6gSbd85u4mG4QzX+"
             crossorigin="anonymous"
         ></script>
+        
     </body>
 </html>
