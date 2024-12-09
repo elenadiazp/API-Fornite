@@ -1,18 +1,16 @@
 import { Type, Rarity, Series, Set, Introduction, Images, Objeto } from './class/Objeto.js';
 
-
-
 let cosmeticosData = []; // Aquí guardamos todos los cosméticos
 let currentBatch = 0; // Para saber cuántos hemos mostrado hasta ahora
 const batchSize = 8; // Número de cosméticos que se muestran por vez
 
 // Función para obtener los datos de la API
 function fetchCosmeticos() {
-    fetch('https://fortnite-api.com/v2/cosmetics?language=es') // Hacemos la petición a la API
-        .then(response => response.json())  // Primero conviertes la respuesta a JSON
+    fetch('https://fortnite-api.com/v2/cosmetics?language=es')
+        .then(response => response.json()) // Convertimos la respuesta a JSON
         .then(jsondata => {
-            cosmeticosData = jsondata.data.br; // Guardamos los datos completos
-            mostrarCosmeticos(); // Muestra los primeros cosméticos
+            cosmeticosData = jsondata.data.br || []; // Guardamos los datos
+            mostrarCosmeticos(); // Mostramos los primeros cosméticos
             lazyLoadCosmeticos(); // Inicia el lazy loading
         })
         .catch(error => {
@@ -23,10 +21,10 @@ function fetchCosmeticos() {
 // Función para mostrar un lote de cosméticos
 function mostrarCosmeticos() {
     const cosmeticosContainer = document.getElementById("container-cosmetics");
-    const start = currentBatch * batchSize; // Establecemos el índice de inicio
-    const end = start + batchSize; // Establecemos el índice de fin
-    
-    const cosmeticosLimitados = cosmeticosData.slice(start, end); // Obtenemos el lote de cosméticos
+    const start = currentBatch * batchSize;
+    const end = start + batchSize;
+
+    const cosmeticosLimitados = cosmeticosData.slice(start, end);
 
     cosmeticosLimitados.forEach(cosmetico => {
         const type = cosmetico.type ? new Type(cosmetico.type.value || "", cosmetico.type.displayValue || "", cosmetico.type.backendValue || "") : new Type();
@@ -35,25 +33,25 @@ function mostrarCosmeticos() {
         const set = cosmetico.set ? new Set(cosmetico.set.value || "", cosmetico.set.text || "", cosmetico.set.backendValue || "") : new Set();
         const introduction = cosmetico.introduction ? new Introduction(cosmetico.introduction.chapter || "", cosmetico.introduction.season || "", cosmetico.introduction.text || "", cosmetico.introduction.backendValue || "") : new Introduction();
         const images = cosmetico.images ? new Images(cosmetico.images.smallIcon || "", cosmetico.images.icon || "") : new Images();
-        
+
         const cosmeticoObj = new Objeto(
-            cosmetico.id || "",  
-            cosmetico.name || "",  
+            cosmetico.id || "",
+            cosmetico.name || "",
             type,
-            cosmetico.description || "",  
+            cosmetico.description || "",
             rarity,
             series,
             set,
             introduction,
             images,
-            cosmetico.added || "" 
+            cosmetico.added || ""
         );
 
         const cosmeticoCard = crearCardCosmetico(cosmeticoObj);
         cosmeticosContainer.appendChild(cosmeticoCard);
     });
 
-    currentBatch++; // Aumentamos el número de lote mostrado
+    currentBatch++;
 }
 
 // Función para cargar más cosméticos cuando el usuario se acerque al final
@@ -61,39 +59,39 @@ function lazyLoadCosmeticos() {
     const loading = document.getElementById("loading-indicator");
 
     const options = {
-        rootMargin: '200px',  // Se activa antes de llegar al final de la página
-        threshold: 1.0  // Cargar cuando el 100% del objetivo sea visible
+        rootMargin: '200px',
+        threshold: 1.0
     };
 
     const observer = new IntersectionObserver(entries => {
         entries.forEach(entry => {
             if (entry.isIntersecting) {
                 if (currentBatch * batchSize < cosmeticosData.length) {
-                    mostrarCosmeticos(); // Si hay más datos, mostramos el siguiente lote
+                    mostrarCosmeticos();
                 } else {
-                    loading.textContent = "No hay más cosméticos"; // Cuando ya no hay más elementos
+                    loading.textContent = "No hay más cosméticos";
                 }
             }
         });
     }, options);
 
-    observer.observe(loading); // Observar el indicador de carga
+    observer.observe(loading);
 }
 
 // Crear la tarjeta de cosmético
 function crearCardCosmetico(cosmetico) {
     const cardCol = document.createElement("div");
-    cardCol.classList.add('col-12', 'col-sm-6', 'col-md-4', 'col-lg-3', 'mb-4'); 
+    cardCol.classList.add('col-12', 'col-sm-6', 'col-md-4', 'col-lg-3', 'mb-4');
 
     const card = document.createElement("div");
-    card.classList.add('card', 'text-center', 'border-0', 'shadow', 'h-100');  
+    card.classList.add('card', 'text-center', 'border-0', 'shadow', 'h-100');
     card.style.backgroundColor = '#1c1e21';
     card.style.color = '#fff';
 
     const img = document.createElement('img');
-    img.src = cosmetico.images.icon ? cosmetico.images.icon : 'img/_default.png';
+    img.src = cosmetico.images.icon || 'img/_default.png';
     img.alt = cosmetico.name;
-    img.classList.add('card-img-top', 'p-3', 'rounded', 'img-fluid'); 
+    img.classList.add('card-img-top', 'p-3', 'rounded', 'img-fluid');
 
     const cardBody = document.createElement("div");
     cardBody.classList.add('card-body');
@@ -107,17 +105,58 @@ function crearCardCosmetico(cosmetico) {
     cardText.textContent = cosmetico.description;
 
     const buyButton = document.createElement("a");
-    buyButton.classList.add('btn', 'btn-primary', 'me-2'); // Añadir margen a la derecha
+    buyButton.classList.add('btn', 'btn-primary', 'me-2');
     buyButton.style.backgroundColor = '#00aaff';
     buyButton.style.border = 'none';
     buyButton.textContent = 'Ver detalles';
     buyButton.href = `objetoAmpliado.html?id=${cosmetico.id}`;
 
     const favoriteButton = document.createElement("button");
-    favoriteButton.classList.add('btn', 'btn-danger', 'me-2'); // Añadir margen a la derecha
+    favoriteButton.classList.add('btn', 'btn-danger', 'me-2');
     favoriteButton.style.backgroundColor = '#ff0000';
     favoriteButton.style.border = 'none';
     favoriteButton.innerHTML = '<i class="fa fa-heart" aria-hidden="true"></i>';
+
+    favoriteButton.addEventListener('click', () => {
+        const favorito = {
+            id: cosmetico.id,
+            name: cosmetico.name,
+            type: cosmetico.type,
+            description: cosmetico.description,
+            rarity: cosmetico.rarity,
+            series: cosmetico.series,
+            set: cosmetico.set,
+            introduction: cosmetico.introduction,
+            images: cosmetico.images,
+            added: cosmetico.added
+        };
+
+        fetch(`http://localhost:3000/favoritos?id=${cosmetico.id}`)
+            .then(response => response.json())
+            .then(data => {
+                if (data.length > 0) {
+                    alert('El cosmético ya está en la lista de favoritos.');
+                } else {
+                    fetch('http://localhost:3000/favoritos', {
+                        method: 'POST',
+                        headers: {
+                            'Content-Type': 'application/json'
+                        },
+                        body: JSON.stringify(favorito)
+                    })
+                        .then(response => response.json())
+                        .then(data => {
+                            console.log('Favorito guardado:', data);
+                        })
+                        .catch(error => {
+                            console.error('Error al guardar el favorito:', error);
+                        });
+                }
+            })
+            .catch(error => {
+                console.error('Error al verificar el favorito:', error);
+            });
+    });
 
     const buttonContainer = document.createElement("div");
     buttonContainer.classList.add('d-flex', 'justify-content-center', 'align-items-center', 'mt-2');
@@ -127,11 +166,13 @@ function crearCardCosmetico(cosmetico) {
     cardBody.appendChild(cardTitle);
     cardBody.appendChild(cardText);
     cardBody.appendChild(buttonContainer);
+
     card.appendChild(img);
     card.appendChild(cardBody);
     cardCol.appendChild(card);
 
     return cardCol;
 }
+
 // Inicializar la carga de cosméticos
 fetchCosmeticos();

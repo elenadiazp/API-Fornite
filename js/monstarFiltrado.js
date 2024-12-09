@@ -187,25 +187,46 @@ document.addEventListener('DOMContentLoaded', function() {
         const cosmeticosContainer = document.getElementById("container-cosmetics");
         cosmeticosContainer.innerHTML = "";  // Limpiamos el contenedor antes de mostrar los nuevos cosméticos
 
-        cosmeticosData.forEach(cosmetico => {
+        const start = currentBatch * batchSize; // Establecemos el índice de inicio
+        const end = start + batchSize; // Establecemos el índice de fin
+        
+        const cosmeticosLimitados = cosmeticosData.slice(start, end); // Obtenemos el lote de cosméticos
+
+        cosmeticosLimitados.forEach(cosmetico => {
             const cosmeticoCard = crearCardCosmetico(cosmetico);
             cosmeticosContainer.appendChild(cosmeticoCard);
         });
+
+        currentBatch++; // Aumentamos el número de lote mostrado
     }
 
-    // Función para obtener los datos de la API
-    function fetchCosmeticos() {
-        fetch('https://fortnite-api.com/v2/cosmetics?language=es') // Hacemos la petición a la API
-            .then(response => response.json())  // Primero conviertes la respuesta a JSON
-            .then(jsondata => {
-                cosmeticosData = jsondata.data.br; // Guardamos los datos completos
-                mostrarCosmeticos(); // Muestra los primeros cosméticos
-            })
-            .catch(error => {
-                console.error('Error al cargar los datos:', error);
+    // Función para cargar más cosméticos cuando el usuario se acerque al final
+    function lazyLoadCosmeticos() {
+        const loading = document.getElementById("loading-indicator");
+
+        const options = {
+            rootMargin: '200px',  // Se activa antes de llegar al final de la página
+            threshold: 1.0  // Cargar cuando el 100% del objetivo sea visible
+        };
+
+        const observer = new IntersectionObserver(entries => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    if (currentBatch * batchSize < cosmeticosData.length) {
+                        mostrarCosmeticos(); // Si hay más datos, mostramos el siguiente lote
+                    } else {
+                        loading.textContent = "No hay más cosméticos"; // Cuando ya no hay más elementos
+                    }
+                }
             });
+        }, options);
+
+        observer.observe(loading); // Observar el indicador de carga
     }
 
-    // Inicializar la carga de cosméticos
-    fetchCosmeticos();
+   
+    
+
+    // Inicializar la carga perezosa
+    lazyLoadCosmeticos();
 });

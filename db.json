@@ -30,6 +30,112 @@
         "icon": "https://fortnite-api.com/images/cosmetics/br/backpack_cavalryalt/icon.png"
       },
       "added": "2022-10-18T23:49:57Z"
+    },
+    {
+      "id": "Backpack_AbstractMirror",
+      "name": "Metal Gear Mk. II",
+      "type": {
+        "value": "backpack",
+        "displayValue": "Accesorio mochilero",
+        "backendValue": "AthenaBackpack"
+      },
+      "description": "Te cubre las espaldas en el campo de batalla.",
+      "rarity": {
+        "value": "gaminglegends",
+        "displayValue": "Serie Leyendas de videojuegos",
+        "backendValue": "EFortRarity::Epic"
+      },
+      "series": {
+        "value": "Serie Leyendas de videojuegos",
+        "colors": [
+          "8078ffff",
+          "5328d6ff",
+          "3e1398ff",
+          "28085fff",
+          "0d0027ff"
+        ],
+        "backendValue": "PlatformSeries"
+      },
+      "set": {
+        "value": "Sigilo",
+        "text": "Parte del conjunto Sigilo.",
+        "backendValue": "HidingTime"
+      },
+      "introduction": {
+        "charapter": "5",
+        "season": "1",
+        "text": "Introducido en Capítulo 5 - Temporada 1.",
+        "backendValue": 28
+      },
+      "images": {
+        "smallIcon": "https://fortnite-api.com/images/cosmetics/br/backpack_abstractmirror/smallicon.png",
+        "icon": "https://fortnite-api.com/images/cosmetics/br/backpack_abstractmirror/icon.png"
+      },
+      "added": "2024-01-23T13:34:48Z"
+    },
+    {
+      "id": "Backpack_AccentWall",
+      "name": "Minikraken",
+      "type": {
+        "value": "backpack",
+        "displayValue": "Accesorio mochilero",
+        "backendValue": "AthenaBackpack"
+      },
+      "description": "¡Ay, míralo! Si se acaba de despertar...",
+      "rarity": {
+        "value": "rare",
+        "displayValue": "Raro",
+        "backendValue": "EFortRarity::Rare"
+      },
+      "series": {
+        "colors": []
+      },
+      "set": {
+        "value": "Piratas del Caribe",
+        "text": "Parte del conjunto Piratas del Caribe.",
+        "backendValue": "GroanScheme"
+      },
+      "introduction": {
+        "charapter": "5",
+        "season": "3",
+        "text": "Introducido en Capítulo 5 - Temporada 3.",
+        "backendValue": 30
+      },
+      "images": {
+        "smallIcon": "https://fortnite-api.com/images/cosmetics/br/backpack_accentwall/smallicon.png",
+        "icon": "https://fortnite-api.com/images/cosmetics/br/backpack_accentwall/icon.png"
+      },
+      "added": "2024-07-17T00:00:00Z"
+    },
+    {
+      "id": "Backpack_AgentAceHeart",
+      "name": "Mochila técnica",
+      "type": {
+        "value": "backpack",
+        "displayValue": "Accesorio mochilero",
+        "backendValue": "AthenaBackpack"
+      },
+      "description": "Siempre a punto para remontar.",
+      "rarity": {
+        "value": "rare",
+        "displayValue": "Raro",
+        "backendValue": "EFortRarity::Rare"
+      },
+      "series": {
+        "colors": []
+      },
+      "set": {},
+      "introduction": {
+        "charapter": "5",
+        "season": "4",
+        "text": "Introducido en Capítulo 5 - Temporada 4.",
+        "backendValue": 31
+      },
+      "images": {
+        "smallIcon": "https://fortnite-api.com/images/cosmetics/br/backpack_agentaceheart/smallicon.png",
+        "icon": "https://fortnite-api.com/images/cosmetics/br/backpack_agentaceheart/icon.png"
+      },
+      "added": "2024-09-04T14:57:46Z"
     }
   ]
 }
