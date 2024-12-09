@@ -1,0 +1,35 @@
+{
+  "favoritos": [
+    {
+      "id": "Backpack_CavalryAlt",
+      "name": "Saint's Legacy",
+      "type": {
+        "value": "backpack",
+        "displayValue": "Back Bling",
+        "backendValue": "AthenaBackpack"
+      },
+      "description": "Great for looking down on everyone.",
+      "rarity": {
+        "value": "rare",
+        "displayValue": "Rare",
+        "backendValue": "EFortRarity::Rare"
+      },
+      "set": {
+        "value": "Saint Academy",
+        "text": "Part of the Saint Academy set.",
+        "backendValue": "AngelSchool"
+      },
+      "introduction": {
+        "chapter": "3",
+        "season": "4",
+        "text": "Introduced in Chapter 3, Season 4.",
+        "backendValue": 22
+      },
+      "images": {
+        "smallIcon": "https://fortnite-api.com/images/cosmetics/br/backpack_cavalryalt/smallicon.png",
+        "icon": "https://fortnite-api.com/images/cosmetics/br/backpack_cavalryalt/icon.png"
+      },
+      "added": "2022-10-18T23:49:57Z"
+    }
+  ]
+}
