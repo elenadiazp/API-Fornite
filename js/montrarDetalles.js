@@ -3,7 +3,7 @@ document.addEventListener("DOMContentLoaded", function () {
   const cosmeticoId = urlParams.get("id");
 
   if (cosmeticoId) {
-    fetch(`https://fortnite-api.com/v2/cosmetics/br/${cosmeticoId}`)
+    fetch(`https://fortnite-api.com/v2/cosmetics/br/${cosmeticoId}?language=es`)
       .then((response) => response.json())
       .then((data) => {
         console.log("Cosmético:", data);
